@@ -4,17 +4,13 @@ name: Backuper
 tagline: Backuper
 icon: https://svgur.com/i/mvA.svg
 category: Development
-version: "1.0.2"
+version: "1.0.3"
 port: 4000
 description: >-
-  Add your app's description here.
-
-
-  You can also add newlines!
-
-developer: Umbrel
+  Backuper
+developer: Aureox
 website: https://umbrel.com
-submitter: Umbrel
+submitter: Aureox
 submission: https://github.com/getumbrel/umbrel-hello-world-app
 repo: https://github.com/getumbrel/umbrel-hello-world-app
 support: https://github.com/getumbrel/umbrel-hello-world-app/issues

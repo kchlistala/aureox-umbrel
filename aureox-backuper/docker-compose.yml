@@ -1,4 +1,8 @@
 version: "3.7"
 services:
   backuper:
-    image: kchlistala89/aureox-backuper:0.0.2
+    image: kchlistala89/aureox-backuper:0.0.7
+    volumes:
+      - ${APP_DATA_DIR}/configs:/configs
+      - ${APP_DATA_DIR}/backups:/backups
+      - ${APP_DATA_DIR}/../immich/data/upload:/immich
