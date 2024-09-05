@@ -1,4 +1,4 @@
 version: "3.7"
 services:
   backuper:
-    image: kchlistala89/aureox-backuper:0.0.1
+    image: kchlistala89/aureox-backuper:0.0.2
