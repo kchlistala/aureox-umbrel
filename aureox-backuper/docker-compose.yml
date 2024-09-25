@@ -13,4 +13,4 @@ services:
     volumes:
       - ${APP_DATA_DIR}/Caddyfile:/etc/caddy/Caddyfile
     ports:
-      - 12002:12002
+      - 12001:12001
