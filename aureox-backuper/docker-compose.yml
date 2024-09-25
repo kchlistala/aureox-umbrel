@@ -6,3 +6,11 @@ services:
       - ${APP_DATA_DIR}/configs:/configs
       - ${APP_DATA_DIR}/backups:/backups
       - ${APP_DATA_DIR}/../immich/data/upload:/immich
+
+  proxy:
+    image: caddy:alpine
+    restart: unless-stopped
+    volumes:
+      - ${APP_DATA_DIR}/Caddyfile:/etc/caddy/Caddyfile
+    ports:
+      - 12002:12002
