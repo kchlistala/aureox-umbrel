@@ -4,5 +4,7 @@ RUN apk add --update supervisor rclone nginx busybox-openrc && rm  -rf /tmp/* /v
 
 ADD supervisord.conf /etc/
 ADD crond.conf /etc/supervisor/conf.d/
+COPY entrypoint.sh /entrypoint.sh
 
-ENTRYPOINT ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf"]

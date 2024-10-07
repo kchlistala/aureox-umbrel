@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   backuper:
-    image: kchlistala89/aureox-backuper:0.0.7
+    image: kchlistala89/aureox-backuper:0.0.8
     volumes:
       - ${APP_DATA_DIR}/../../../rclone:/configs
       - ${APP_DATA_DIR}/backups:/backups
