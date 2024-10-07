@@ -6,7 +6,7 @@ services:
       - ${APP_DATA_DIR}/../../../rclone:/configs
       - ${APP_DATA_DIR}/backups:/backups
       - ${APP_DATA_DIR}/../immich/data/upload:/immich
-      - ${APP_DATA_DIR}/crontab:/etc/crontabs/root
+      - ${APP_DATA_DIR}/crontab:/var/spool/cron/crontabs/root
 
   backup:
     container_name: immich_db_dumper

@@ -1,2 +1,2 @@
-20 */3 * * * flock -n /tmp/immich.flock rclone --config=/config/immich.conf sync --transfers=6 --delete-after /immich immich_crypt:immich-files
-1 */3 * * * flock -n /tmp/immich-sql.flock rclone --config=/config/immich.conf sync --transfers=6 --delete-after /backups immich_crypt:immich-sql
+20 */3 * * * flock -n /tmp/immich.flock rclone --config=/configs/immich.conf sync --transfers=6 --delete-after /immich immich_crypt:immich-files
+1 */3 * * * flock -n /tmp/immich-sql.flock rclone --config=/configs/immich.conf sync --transfers=6 --delete-after /backups immich_crypt:immich-sql
