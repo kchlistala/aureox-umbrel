@@ -7,6 +7,22 @@ services:
       - ${APP_DATA_DIR}/backups:/backups
       - ${APP_DATA_DIR}/../immich/data/upload:/immich
 
+  backup:
+    container_name: immich_db_dumper
+    image: prodrigestivill/postgres-backup-local:14
+    restart: always
+    environment:
+      POSTGRES_CLUSTER: 'FALSE'
+      POSTGRES_HOST: immich_postgres_1
+      POSTGRES_USER: immich
+      POSTGRES_PASSWORD: moneyprintergobrrr
+      POSTGRES_DB: immich
+      SCHEDULE: "*/3 * * * *"
+      POSTGRES_EXTRA_OPTS: '--clean --if-exists'
+      BACKUP_DIR: /db_dumps
+    volumes:
+      - ${APP_DATA_DIR}/backups:/db_dumps
+
   proxy:
     image: caddy:alpine
     restart: unless-stopped
@@ -14,3 +30,13 @@ services:
       - ${APP_DATA_DIR}/Caddyfile:/etc/caddy/Caddyfile
     ports:
       - 12001:12001
+
+  agent:
+    ports:
+      - 9001:9001
+    container_name: portainer_agent
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/volumes:/var/lib/docker/volumes
+    image: portainer/agent:2.19.5
