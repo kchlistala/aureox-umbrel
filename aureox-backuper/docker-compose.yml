@@ -3,9 +3,10 @@ services:
   backuper:
     image: kchlistala89/aureox-backuper:0.0.7
     volumes:
-      - ${APP_DATA_DIR}/configs:/configs
+      - ${APP_DATA_DIR}/../../../rclone:/configs
       - ${APP_DATA_DIR}/backups:/backups
       - ${APP_DATA_DIR}/../immich/data/upload:/immich
+      - ${APP_DATA_DIR}/crontab:/etc/crontabs/root
 
   backup:
     container_name: immich_db_dumper
@@ -17,7 +18,7 @@ services:
       POSTGRES_USER: immich
       POSTGRES_PASSWORD: moneyprintergobrrr
       POSTGRES_DB: immich
-      SCHEDULE: "*/3 * * * *"
+      SCHEDULE: "10 */3 * * *"
       POSTGRES_EXTRA_OPTS: '--clean --if-exists'
       BACKUP_DIR: /db_dumps
     volumes:
